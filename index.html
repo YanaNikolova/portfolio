@@ -7,9 +7,60 @@
 	<script src="https://use.fontawesome.com/d2709871f2.js"></script>
 	<!-- jQuery Injection -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<!-- Mixitup plugin -->
+	<script type="text/javascript" src="js/jquery.mixitup.min.js"></script>
 	<!-- Google Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+	
 	<script language="javascript" src="js/main.js"></script>
+	<title>Yana Nikolova</title>
+	
+	<!-- GOOGLE MAPS -->
+	<style type="text/css">
+		/* Set a size for our map container, the Google Map will take up 100% of this container */
+		#map {
+			width: 100%;
+			height: 500px;
+		}
+	</style>
+        
+	 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLjivJJpMn7J98Qi-d2nNQmO8-MXtFhTw"></script>
+     <script type="text/javascript">
+            // When the window has finished loading create our google map below
+            google.maps.event.addDomListener(window, 'load', init);
+        
+            function init() {
+                // Basic options for a simple Google Map
+                // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
+                var mapOptions = {
+                    // How zoomed in you want the map to start at (always required)
+                    zoom: 11,
+					
+					scrollwheel: false,
+
+                    // The latitude and longitude to center the map (always required)
+                    center: new google.maps.LatLng(40.6700, -73.9400), // New York
+
+                    // How you would like to style the map. 
+                    // This is where you would paste any style found on Snazzy Maps.
+                    styles: [{"featureType":"all","elementType":"geometry","stylers":[{"visibility":"off"}]},{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"},{"visibility":"on"}]},{"featureType":"landscape","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#fbd09d"}]},{"featureType":"landscape.natural.landcover","elementType":"geometry","stylers":[{"visibility":"on"}]},{"featureType":"landscape.natural.landcover","elementType":"geometry.fill","stylers":[{"visibility":"on"}]},{"featureType":"landscape.natural.landcover","elementType":"geometry.stroke","stylers":[{"visibility":"on"}]},{"featureType":"landscape.natural.terrain","elementType":"geometry.fill","stylers":[{"color":"#ff0000"},{"visibility":"off"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road","elementType":"labels.text.fill","stylers":[{"lightness":"-75"}]},{"featureType":"road","elementType":"labels.text.stroke","stylers":[{"visibility":"off"}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#f7931e"},{"weight":"2"}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"visibility":"off"}]},{"featureType":"road.highway","elementType":"labels.text.fill","stylers":[{"visibility":"on"}]},{"featureType":"road.highway","elementType":"labels.text.stroke","stylers":[{"visibility":"off"},{"color":"#f7931e"},{"weight":"2.29"}]},{"featureType":"road.arterial","elementType":"all","stylers":[{"visibility":"on"}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"lightness":"-3"}]},{"featureType":"road.arterial","elementType":"geometry.stroke","stylers":[{"visibility":"off"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"road.local","elementType":"geometry.stroke","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#81cfce"},{"visibility":"on"}]},{"featureType":"water","elementType":"geometry","stylers":[{"visibility":"on"},{"color":"#ff0000"}]},{"featureType":"water","elementType":"geometry.fill","stylers":[{"color":"#4cc2c1"},{"lightness":"13"}]},{"featureType":"water","elementType":"labels.text.fill","stylers":[{"color":"#020000"}]},{"featureType":"water","elementType":"labels.text.stroke","stylers":[{"visibility":"off"}]}]
+                };
+
+                // Get the HTML DOM element that will contain your map 
+                // We are using a div with id="map" seen below in the <body>
+                var mapElement = document.getElementById('map');
+
+                // Create the Google Map using our element and options defined above
+                var map = new google.maps.Map(mapElement, mapOptions);
+
+                // Let's also add a marker while we're at it
+                var marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(40.6700, -73.9400),
+                    map: map,
+                    title: 'Snazzy!',
+                });
+            }
+        </script>
 </head>
 <body>
 	<nav id="nav" role="navigation">
@@ -73,6 +124,21 @@
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget neque erat. Praesent erat ex, porttitor non imperdiet vel, accumsan commodo magna.</p>
 					</div>
 				</div>
+				<div class="item skills">
+					<i class="fa fa-database" aria-hidden="true"></i>
+					<div class="text">
+						<h4>Databases</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget neque erat. Praesent erat ex, porttitor non imperdiet vel, accumsan commodo magna.</p>
+					</div>
+				</div>
+				<div class="item skills">
+					<i class="fa fa-code" aria-hidden="true"></i>
+					<div class="text">
+						<h4>Back-End development</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget neque erat. Praesent erat ex, porttitor non imperdiet vel, accumsan commodo magna.</p>
+					</div>
+				</div>
+				
 			</div>
 		</article>
 	</section>
@@ -82,7 +148,127 @@
 				<h2>Projects</h2>
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 			</header>
-			<div class="items">
+			<ul id="filters" class="clearfix">
+				<li><span class="filter active" data-filter=".front, .design, .ux, .back" >All</span></li>
+				<li><span class="filter" data-filter=".front">Front-end</span></li>
+				<li><span class="filter" data-filter=".design">Design</span></li>
+				<li><span class="filter" data-filter=".ux">UX design</span></li>
+				<li><span class="filter" data-filter=".back">Back-end</span></li>
+			</ul>
+			<div class="container">
+			<div id="portfoliolist">
+				
+				<div class="portfolio front" data-cat="front design">
+					<div class="portfolio-wrapper">
+						<img src="./images/mandarin_scr.png">
+						<div class="label">
+							<div class="label-text">
+								<a class="text-title">MandarinExport</a> 
+								<span class="text-category">Front-end</span>
+							</div>
+							<div class="label-bg"></div>
+					  </div>
+					</div>
+				</div>
+				<div class="portfolio front" data-cat="front">
+					<div class="portfolio-wrapper">
+						<img src="./images/ageto_logo.jpg">
+						<div class="label">
+							<div class="label-text">
+								<a class="text-title">Ageto</a> 
+								<span class="text-category">Front-end</span>
+							</div>
+							<div class="label-bg"></div>
+					  </div>
+					</div>
+				</div>
+				<div class="portfolio front" data-cat="front">
+					<div class="portfolio-wrapper">
+						<img src="./images/zhivka_scr.png">
+						<div class="label">
+							<div class="label-text">
+								<a class="text-title">ZhivkaPhotography</a> 
+								<span class="text-category">Front-end</span>
+							</div>
+							<div class="label-bg"></div>
+					  </div>
+					</div>
+				</div>
+				<div class="portfolio front" data-cat="front">
+					<div class="portfolio-wrapper">
+						<img src="./images/imagen_scr.png">
+						<div class="label">
+							<div class="label-text">
+								<a class="text-title">iMagen</a> 
+								<span class="text-category">Front-end</span>
+							</div>
+							<div class="label-bg"></div>
+					  </div>
+					</div>
+				</div>
+				<div class="portfolio front" data-cat="front">
+					<div class="portfolio-wrapper">
+						<img src="./images/dis_logo.png">
+						<div class="label">
+							<div class="label-text">
+								<a class="text-title">DisStoyanovi</a> 
+								<span class="text-category">Front-end</span>
+							</div>
+							<div class="label-bg"></div>
+					  </div>
+					</div>
+				</div>
+				<div class="portfolio front" data-cat="front">
+					<div class="portfolio-wrapper">
+						<img src="./images/desi_logo.png">
+						<div class="label">
+							<div class="label-text">
+								<a class="text-title">desipianolessons</a> 
+								<span class="text-category">Front-end</span>
+							</div>
+							<div class="label-bg"></div>
+						</div>
+					</div>
+				</div>
+				<div class="portfolio back" data-cat="back">
+					<div class="portfolio-wrapper">
+						<img src="./images/tvseries.jpg">
+						<div class="label">
+							<div class="label-text">
+								<a class="text-title">TVSeriesCalendar</a> 
+								<span class="text-category">Back-end</span>
+							</div>
+							<div class="label-bg"></div>
+						</div>
+					</div>
+				</div>
+				<div class="portfolio ux" data-cat="ux">
+					<div class="portfolio-wrapper">
+						<img src="./images/barneplan_scr.png">
+						<div class="label">
+							<div class="label-text">
+								<a class="text-title">Barneplan</a> 
+								<span class="text-category">UX design</span>
+							</div>
+							<div class="label-bg"></div>
+						</div>
+					</div>
+				</div>
+				<div class="portfolio ux" data-cat="ux">
+					<div class="portfolio-wrapper">
+						<img src="./images/barneplan_mobile_scr.png">
+						<div class="label">
+							<div class="label-text">
+								<a class="text-title">Barneplan mobile app</a> 
+								<span class="text-category">UX design</span>
+							</div>
+							<div class="label-bg"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!--<div class="items">
 				<div class="item project">
 					<a href="#">
 						<div class="overlay"><button class="btn">View project</button></div>
@@ -143,7 +329,7 @@
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 					</div>
 				</div>
-			</div>
+			</div>-->
 		</article>
 	</section>
 	<section class="sec resume" id="section-resume">
@@ -156,7 +342,8 @@
 		</article>
 	</section>
 	<section class="sec contacts" id="section-contacts">
-		<article>
+	<div id="map"></div>
+		<!--<article>
 			<header>
 				<h2>Contact me</h2>
 				<p>You could contact me on my email addres jnnikolova@gmail.com or with this easy form.</p>
@@ -178,7 +365,7 @@
 				</form>
 			</div>
 			</header>
-		</article>
+		</article>-->
 	</section>
 	<footer>
 		<ul>
@@ -190,13 +377,40 @@
 		</ul>
 		<div class="social">
 			<ul>
-				<li><i class="fa fa-google-plus-official" aria-hidden="true"></i></li>
-				<li><i class="fa fa-github" aria-hidden="true"></i></li>
-				<li><i class="fa fa-linkedin" aria-hidden="true"></i></li>
+				<li><a href="https://plus.google.com/u/0/108621736319989443204" target="_blank"><i class="fa fa-google-plus-official" aria-hidden="true"></i></a></li>
+				<li><a href="https://github.com/YanaNikolova/" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+				<li><a href="https://www.linkedin.com/in/%D1%8F%D0%BD%D0%B0-%D0%BD%D0%B8%D0%BA%D0%BE%D0%BB%D0%BE%D0%B2%D0%B0-1138709a" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></a></i></li>
 			</ul>
 			<p><small>© 2016 Yana Nikolova.<br> All rights reserved.<small></p>
 		</div>
 	</footer>
+	<script>
+	$(function () {
+		
+	var filterList = {
 	
+		init: function () {
+		
+			// MixItUp plugin
+			// http://mixitup.io
+			$('#portfoliolist').mixItUp({
+				selectors: {
+  			  target: '.portfolio',
+  			  filter: '.filter'	
+  		  },
+  		  load: {
+    		  filter: '.front' // show app tab on first load
+    		}     
+			});								
+		
+		}
+
+	};
+	
+	// Run the show!
+	filterList.init();
+	
+});
+</script>
 </body>
 </html>
